@@ -49,6 +49,6 @@ Does the price of wine follow a trend based on the other factors that make up a 
 
 ### Hypothesis
 
-
+Using the wine rating data set, I hypothesize that there is no trend in wine prices that can be predicted using one or more of the explanatory variables.
 
 ### Initial Analysis
