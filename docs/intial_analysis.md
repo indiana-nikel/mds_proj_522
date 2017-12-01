@@ -4,8 +4,6 @@
 
 Link: [https://www.kaggle.com/zynicide/wine-reviews](https://www.kaggle.com/zynicide/wine-reviews)
 
-Description:
-
 The data consists of 10 fields:
 
 | Variable | Description |
@@ -45,7 +43,11 @@ Using the wine rating data set, I hypothesize that there is no trend in wine pri
 
 To pull the dataset into a usable format I would use a shell script integrated with the Kaggle client to first download the data set, storing it in the `data/raw` directory. I would then unzip and import the resulting CSV file into R, storing those scripts in their respective directories (`src/r`, `src/shell`).
 
+###### Data Wrangling
+
 When importing the data into R, I would make sure that the data is correctly formatted: categorical variables are factors, discrete variables are integers, continuous variables are doubles, etc. This would minimize the errors that could arise from blindly importing raw data. The resulting data set would be placed into the `data/interim` directory.
+
+###### Plotting
 
 Before any statistical methods can get applied to the data set, it is important to plot and see any obvious trends. I would start by plotting price (my response variable) as a frequency histogram, to see the rough distribution of the frequency of certain prices. I could expand this into box plot to show the range of the data as well as any outliers.
 
