@@ -45,7 +45,7 @@ Format:
 
 ### Research Question
 
-
+Does the price of wine follow a trend based on the other factors that make up a wine? That is, can we predict the price of a wine knowing certain features about that wine (ie. location, winery, grapes used, description, rating, etc.)?
 
 ### Hypothesis
 
