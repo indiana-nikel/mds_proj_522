@@ -52,3 +52,13 @@ Does the price of wine follow a trend based on the other factors that make up a 
 Using the wine rating data set, I hypothesize that there is no trend in wine prices that can be predicted using one or more of the explanatory variables.
 
 ### Initial Analysis
+
+To pull the dataset into a usable format I would use a shell script integrated with the Kaggle client to first download the data set, storing it in the `data/raw` directory. I would then unzip and import the resulting CSV file into R, storing those scripts in their respective directories (`src/r`, `src/shell`).
+
+When importing the data into R, I would make sure that the data is correctly formatted: categorical variables are factors, discrete variables are integers, continuous variables are doubles, etc. This would minimize the errors that could arise from blindly importing raw data. The resulting data set would be placed into the `data/interim` directory.
+
+Before any statistical methods can get applied to the data set, it is important to plot and see any obvious trends. I would start by plotting price (my response variable) as a frequency histogram, to see the rough distribution of the frequency of certain prices. I could expand this into box plot to show the range of the data as well as any outliers.
+
+I would then plot price against rating in a scatter plot, the most obvious variable that would be related to price. If there were any obvious trends, I would fit a smooth line to approximate the trend.
+
+I would follow this plotting pattern with the other singular variables (where appropriate), and then adding in multiple variables to the same plot (ie. grouping by location). I would also take note of any trends that are apparent but not linear, indicating that a transformation might be required for a linear regression model. The plots will all be saved in the `results/figures` directory.
