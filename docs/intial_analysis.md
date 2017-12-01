@@ -8,8 +8,8 @@ Description:
 
 The data consists of 10 fields:
 
-| Variables | Description |
-| --------- | ------------------------------------ |
+| Variable | Description |
+| ------------------ | ------------------------------------ |
 | Points | The number of points WineEnthusiast rated the wine on a scale of 1-100 (reviews are only for wines that score >=80). |
 | Title | The title of the wine review, which often contains the vintage. |
 | Variety | The type of grapes used to make the wine (ie. Pinot Noir). |
