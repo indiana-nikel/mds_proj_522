@@ -15,7 +15,7 @@ library(countrycode)
 library(forcats)
 
 # Read in summarized data as csv
-data <- read.csv("data/processed/summary.csv", sep=",")
+data <- read.csv(args[1], sep=",")
 
 # Edit data to make it plottable
 map_iso <- 
@@ -72,6 +72,10 @@ joined_data %>%
 
 # Write plots as png
 
-ggsave("rankings_distribution.png", points_hist)
-ggsave("boxplots_rankings.png", box_plots)
-ggsave("wine_locations.png", map_count)
+file_loc1 <- paste(args[2],"rankings_distribution.png", sep="")
+file_loc2 <- paste(args[2],"boxplots_rankings.png", sep="")
+file_loc3 <- paste(args[2],"wine_locations.png", sep="")
+
+ggsave(file_loc1, points_hist)
+ggsave(file_loc2, box_plots)
+ggsave(file_loc3, map_count)
