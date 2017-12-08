@@ -14,7 +14,6 @@ library(maps)
 library(countrycode)
 library(forcats)
 
-
 # Read in summarized data as csv
 data <- read.csv("data/processed/summary.csv", sep=",")
 
@@ -59,7 +58,7 @@ price_box_no_outliers <- data %>%
   xlab("Points") + 
   ylab("Price")
 
-plot_grid(price_box, price_box_no_outliers, labels=)
+box_plots <- plot_grid(price_box, price_box_no_outliers, labels=)
 
 map_count <- 
 joined_data %>% 
@@ -72,3 +71,7 @@ joined_data %>%
   labs(title="Where Wines Come From")
 
 # Write plots as png
+
+ggsave("rankings_distribution.png", points_hist)
+ggsave("boxplots_rankings.png", box_plots)
+ggsave("wine_locations.png", map_count)
