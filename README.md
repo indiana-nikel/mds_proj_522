@@ -10,35 +10,57 @@ is for educational use.
 
 ## Initial Analysis
 
+### Usage
+
+The analysis for this project can be run using the driver script in the main directory:
+
+```
+bash driver.sh
+```
+
+This driver script requires no arguments and contains the order in which the analysis source code is run, including arguments.
+
+The analysis pipe line begins with the shell script `retrieval.sh`, which takes
+in the location of the downloaded zip file and the destination of the unzipped data file. the purpose of the script is to unzip the compressed file into a usable format.
+
+The next step is the R script `analysis.R`, which takes in the location of the raw data file and the destination of the wrangled data file. The purpose of the script is to manipulate and transform the data into a format that is usable for plotting and reports.
+
+The final step is the R script `plots.R`, which takes in the location of the wrangled data file and the path to the figures directory to save the newly-created plots. The purpose of the script is to write to file plots that show insight into the data set.
+
+When all of the scripts have completed, the final report can be found in the `results/reports` directory as `report.Rmd`.
+
 ### Data Set
 
 Link: [https://www.kaggle.com/zynicide/wine-reviews](https://www.kaggle.com/zynicide/wine-reviews)
 
-The data consists of 10 fields:
+The data consists of 13 fields:
 
 | Variable | Description |
 | ------------------ | ------------------------------------ |
-| Points | The number of points WineEnthusiast rated the wine on a scale of 1-100 (reviews are only for wines that score >=80). |
-| Title | The title of the wine review, which often contains the vintage. |
-| Variety | The type of grapes used to make the wine (ie. Pinot Noir). |
-| Description | A few sentences from a sommelier describing the wine's taste (ie. smell, look, feel, etc.). |
 | Country | The country that the wine is from. |
+| Description | A few sentences from a sommelier describing the wine's taste (ie. smell, look, feel, etc.). |
+| Designation | The vineyard within the winery where the grapes that made the wine are from. |
+| Points | The number of points WineEnthusiast rated the wine on a scale of 1-100 (reviews are only for wines that score >=80). |
+| Price | The cost for a bottle of the wine. |
 | Province | The province or state that the wine is from. |
 | Region 1 | The wine growing area in a province or state (ie. Napa). |
 | Region 2 | Sometimes there are more specific regions specified within a wine growing area (ie. Rutherford inside the Napa Valley), but this value can sometimes be blank. |
-| Winery | The winery that made the wine. |
-| Designation | The vineyard within the winery where the grapes that made the wine are from. |
-| Price | The cost for a bottle of the wine. |
 | Taster Name | Name of the person who tasted and reviewed the wine. |
 | Taster Twitter Handle | Twitter handle for the person who tasted and reviewed the wine. |
+| Title | The title of the wine review, which often contains the vintage. |
+| Variety | The type of grapes used to make the wine (ie. Pinot Noir). |
+| Winery | Twitter handle for the person who tasted and reviewed the wine. |
+
 
 Format:
 
 * Approximately 130K rows.
 
+* Approximately 9K rows with at least one NA value.
+
 * Downloaded as a `.zip` file.
 
-* Extracted into both JSON and CSV format.
+* Can be extracted into both JSON and CSV format.
 
 
 ### Research Question
@@ -55,12 +77,31 @@ To pull the dataset into a usable format I would use a shell script integrated w
 
 ###### Data Wrangling
 
-When importing the data into R, I would make sure that the data is correctly formatted: categorical variables are factors, discrete variables are integers, continuous variables are doubles, etc. This would minimize the errors that could arise from blindly importing raw data. The resulting data set would be placed into the `data/interim` directory.
+When importing the data into R, I would make sure that the data is correctly
+formatted: categorical variables are factors, discrete variables are integers,
+continuous variables are doubles, etc. This would minimize the errors that could
+arise from blindly importing raw data. The resulting data set would be placed
+into the `data/processed` directory.
 
 ###### Plotting
 
-Before any statistical methods can get applied to the data set, it is important to plot and see any obvious trends. I would start by plotting price (my response variable) as a frequency histogram, to see the rough distribution of the frequency of certain prices. I could expand this into box plot to show the range of the data as well as any outliers.
+Before any statistical methods can get applied to the data set, it is important
+to plot and see any obvious trends. I would start by plotting points as a
+frequency histogram, to see the rough distribution of the frequency of certain
+prices. I could expand this into box plot against price (my response variable)
+to show the range of the data as well as any outliers.
 
-I would then plot price against rating in a scatter plot, the most obvious variable that would be related to price. If there were any obvious trends, I would fit a smooth line to approximate the trend.
+Additionally, to see where the distribution of wines are coming from, I would
+plot a map of the world. The colors of the map would correspond to the number of
+wines rated. This could give an insight into why wines are rated the way that
+they are (ie. French wines are rated lower but cost more than American wines).
 
-I would follow this plotting pattern with the other singular variables (where appropriate), and then adding in multiple variables to the same plot (ie. grouping by location). I would also take note of any trends that are apparent but not linear, indicating that a transformation might be required for a linear regression model. The plots will all be saved in the `results/figures` directory.
+The plots will all be saved in the `results/figures` directory.
+
+###### Moving Forward
+
+After the exploratory data analysis, statistical methods can be put into place.
+I would be looking at fitting a linear regression model for price based on the
+factors that are the most statistically significant. It might also be
+appropriate to include a classification model for why wines are rated the way
+that they are.
