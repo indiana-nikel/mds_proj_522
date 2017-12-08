@@ -1,0 +1,5 @@
+![histogram](../figures/boxplots_rankings.png)
+
+![histogram](../figures/rankings_distribution.png)
+
+![histogram](../figures/wine_locations.png)
