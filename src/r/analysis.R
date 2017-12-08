@@ -8,14 +8,13 @@ if (length(args) != 2) {
 
 # Initial set up of R environment, including libraries
 library(tidyverse)
-setwd("../..")
 
 # Read in data
 data <- read.csv(args[1], sep=",")
 
 # Summarize data, removing unused columns
-data_summarized <- 
-  data %>% 
+data_summarized <-
+  data %>%
   select(-description, -taster_name, -taster_twitter_handle)
 
 # Handle NA values by removing the rows
