@@ -29,6 +29,12 @@ The final step is the R script `plots.R`, which takes in the location of the wra
 
 When all of the scripts have completed, the final report can be found in the `results/reports` directory as `report.Rmd`.
 
+When the analysis is complete, you can remove all temporary files (excluding `report.Rmd` and `winemag-data-130k-v2.csv.zip`) through the clean script in the main directory: 
+
+```
+bash clean.sh
+```
+
 ### Data Set
 
 Link: [https://www.kaggle.com/zynicide/wine-reviews](https://www.kaggle.com/zynicide/wine-reviews)
