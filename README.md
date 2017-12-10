@@ -29,7 +29,7 @@ The final step is the R script `plots.R`, which takes in the location of the wra
 
 When all of the scripts have completed, the final report can be found in the `results/reports` directory as `report.Rmd`.
 
-When the analysis is complete, you can remove all temporary files (excluding `report.Rmd` and `winemag-data-130k-v2.csv.zip`) through the clean script in the main directory: 
+When the analysis is complete, you can remove all temporary files (excluding `report.Rmd` and `winemag-data-130k-v2.csv.zip`) through the clean script in the main directory:
 
 ```
 bash clean.sh
@@ -55,7 +55,7 @@ The data consists of 13 fields:
 | Taster Twitter Handle | Twitter handle for the person who tasted and reviewed the wine. |
 | Title | The title of the wine review, which often contains the vintage. |
 | Variety | The type of grapes used to make the wine (ie. Pinot Noir). |
-| Winery | Twitter handle for the person who tasted and reviewed the wine. |
+| Winery | The winery where the grapes that made the wine are from. |
 
 
 Format:
