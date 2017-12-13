@@ -22,7 +22,7 @@ main directory:
 make -f Makefile all
 ```
 
-This makefile requires one argument (`all`) to run the analysis top to bottom.
+This makefile requires one argument `all` to run the analysis top to bottom.
 This makefile contains the order in which the analysis source code is run,
 including arguments.
 
@@ -58,7 +58,6 @@ make -f Makefile clean
 ### File Dependency
 
 ```
-
 ├── report.md
 │   ├── render.R
 │   └── report.Rmd
@@ -70,7 +69,6 @@ make -f Makefile clean
 │                   ├── analysis.R
 │                   └── winemag-data-130k-v2.csv.zip
 │                       └── retrieval.sh
-
 ```
 
 ### Data Set

@@ -57,7 +57,7 @@ DEALINGS IN THE SOFTWARE." >> LICENSE.md
 
   echo "###### Project structure developed by Indiana Nikel: [https://github.com/indiana-nikel/dsci_project](https://github.com/indiana-nikel/dsci_project)" > CONTRIBUTING.md
 
-echo "\n### Base structure pulled from [https://drivendata.github.io/cookiecutter-data-science/](https://drivendata.github.io/cookiecutter-data-science/)." >> CONTRIBUTING.md
+  echo "\n### Base structure pulled from [https://drivendata.github.io/cookiecutter-data-science/](https://drivendata.github.io/cookiecutter-data-science/)." >> CONTRIBUTING.md
 
   echo -e "\nProject created by $name." >> CONTRIBUTING.md
 
@@ -71,12 +71,12 @@ echo "\n### Base structure pulled from [https://drivendata.github.io/cookiecutte
 
   # Create Directories
 
-  mkdir data results src docs img sandbox models
+  mkdir data results src docs img sandbox models template
   mkdir data/raw data/interim data/processed
   mkdir results/figures results/reports
   mkdir src/python src/r src/shell
 
-  # Create blank REAME.md files
+  # Create blank README.md files
 
   echo > data/README.md
   echo > data/raw/README.md
@@ -97,5 +97,8 @@ echo "\n### Base structure pulled from [https://drivendata.github.io/cookiecutte
   echo > sandbox/README.md
   echo > models/README.md
 
+  cd ..
+  cp README.md $dir/template/README.md
+  cp skeleton.sh $dir/template/skeleton.sh
 
 fi

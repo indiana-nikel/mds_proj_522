@@ -1,5 +1,5 @@
 *Created by Indiana Nikel*
-*Last edit on November 17, 2017*
+*Last edit on December 13, 2017*
 
 # Overview
 
@@ -28,7 +28,6 @@ The above code will create a directory `sample_project` with the skeleton framew
 ## Directory Structure
 
 ```
-
 ├── LICENSE.md
 ├── CITATION.md
 ├── CONTRIBUTING.md
@@ -56,7 +55,7 @@ The above code will create a directory `sample_project` with the skeleton framew
 ├── img                <- Raw images from third-parties
 |
 ├── sandbox            <- Raw files from third parties for documentation purposes only.
-
+├── template           <- Template files from project creation for documentation
 ```
 
 ---
@@ -69,7 +68,7 @@ The directory to hold data sets for analysis/use. Raw data sets should be includ
 
 ##### docs
 
-The directory to hold all documents relating to the data science project. This can include, but is not limited to, manuals, library dependencies, references, and reports.
+The directory to hold all documents relating to the data science project. This can include, but is not limited to, manuals, library dependencies, references, and rendered reports.
 
 ##### models
 
@@ -89,7 +88,11 @@ The directory to hold all images that are included in the data science project. 
 
 ##### sandbox
 
-The directory holds all miscellaneous files that are included in the project, but require transformation in order to be usable. Some examples can include rich text files (.rtf) and disorganized spreadsheets.
+The directory to hold all miscellaneous files that are included in the project, but require transformation in order to be usable. Some examples can include rich text files (.rtf) and disorganized spreadsheets.
+
+##### template
+
+The directory to hold `skeleton.sh` and `README.md` for documentation purposes.
 
 ---
 
