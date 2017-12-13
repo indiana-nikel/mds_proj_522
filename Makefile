@@ -1,4 +1,4 @@
-all: winemag-data-130k-v2.csv summary.csv *.png
+all: winemag-data-130k-v2.csv summary.csv *.png report.md
 
 winemag-data-130k-v2.csv : sandbox/winemag-data-130k-v2.csv.zip src/shell/retrieval.sh
 		bash src/shell/retrieval.sh "sandbox/winemag-data-130k-v2.csv.zip" "data/raw/"
@@ -9,6 +9,9 @@ summary.csv : data/raw/winemag-data-130k-v2.csv src/r/analysis.R
 *.png : data/processed/summary.csv src/r/plots.R
 		Rscript src/r/plots.R "data/processed/summary.csv" "results/figures/"
 
+report.md : *.png src/r/render.R
+		Rscript src/r/render.R "results/reports/report.Rmd" "docs/"
+
 clean :
 		rm data/raw/winemag-data-130k-v2.csv
 		rm data/processed/summary.csv
@@ -17,4 +20,5 @@ clean :
 		rm results/figures/rankings_distribution.png
 		rm results/figures/wine_locations.png
 
+		rm docs/report.md
 		rm Rplots.pdf
