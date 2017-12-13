@@ -6,33 +6,71 @@ is for educational use.
 
 ## Description
 
-`mds_proj_522` is developing a predictive model for the price of wine based on up to 10 different explanatory factors. The data set, pulled from [https://www.kaggle.com/zynicide/wine-reviews](https://www.kaggle.com/zynicide/wine-reviews) contains approximately 130,000 different wine reviews to analyze from.
+`mds_proj_522` is developing a predictive model for the price of wine based on
+up to 10 different explanatory factors. The data set, pulled from
+[https://www.kaggle.com/zynicide/wine-reviews](https://www.kaggle.com/zynicide/wine-reviews)
+contains approximately 130,000 different wine reviews to analyze from.
 
 ## Initial Analysis
 
 ### Usage
 
-The analysis for this project can be run using the driver script in the main directory:
+The analysis for this project can be run using the makefile `Makefile` in the
+main directory:
 
 ```
-bash driver.sh
+make -f Makefile all
 ```
 
-This driver script requires no arguments and contains the order in which the analysis source code is run, including arguments.
+This makefile requires one argument (`all`) to run the analysis top to bottom.
+This makefile contains the order in which the analysis source code is run,
+including arguments.
 
 The analysis pipe line begins with the shell script `retrieval.sh`, which takes
-in the location of the downloaded zip file and the destination of the unzipped data file. the purpose of the script is to unzip the compressed file into a usable format.
+in the location of the downloaded zip file and the destination of the unzipped
+data file. the purpose of the script is to unzip the compressed file into a
+usable format.
 
-The next step is the R script `analysis.R`, which takes in the location of the raw data file and the destination of the wrangled data file. The purpose of the script is to manipulate and transform the data into a format that is usable for plotting and reports.
+The next step is the R script `analysis.R`, which takes in the location of the
+raw data file and the destination of the wrangled data file. The purpose of the
+script is to manipulate and transform the data into a format that is usable for
+plotting and reports.
 
-The final step is the R script `plots.R`, which takes in the location of the wrangled data file and the path to the figures directory to save the newly-created plots. The purpose of the script is to write to file plots that show insight into the data set.
+The next step is the R script `plots.R`, which takes in the location of the
+wrangled data file and the path to the figures directory to save the
+newly-created plots. The purpose of the script is to write to file plots that
+show insight into the data set.
 
-When all of the scripts have completed, the final report can be found in the `results/reports` directory as `report.Rmd`.
+When all of the above scripts have completed, the raw report can be found in the `results/reports` directory as `report.Rmd`.  
 
-When the analysis is complete, you can remove all temporary files (excluding `report.Rmd` and `winemag-data-130k-v2.csv.zip`) through the clean script in the main directory:
+The final step is the R script `render.R`, which takes in the location of the
+raw report file and the path to the documents directory to save the final
+rendered report in a `.md` format. The purpose of the script is to render the
+`R.md` file into a final, readable format.
+
+When the analysis is complete, you can remove all temporary files (excluding
+`report.Rmd` and `winemag-data-130k-v2.csv.zip`) through the `clean` argument in the makefile in main directory:
 
 ```
-bash clean.sh
+make -f Makefile clean
+```
+
+### File Dependency
+
+```
+
+├── report.md
+│   ├── render.R
+│   └── report.Rmd
+│       └── *.png
+│           ├── plots.R
+│           └── summary.csv
+│               ├── analysis.R
+│               └── winemag-data-130k-v2.csv
+│                   ├── analysis.R
+│                   └── winemag-data-130k-v2.csv.zip
+│                       └── retrieval.sh
+
 ```
 
 ### Data Set
