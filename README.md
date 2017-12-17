@@ -19,7 +19,7 @@ The analysis for this project can be run using the makefile `Makefile` in the
 main directory:
 
 ```
-make -f Makefile all
+make -f Makefile_windows all
 ```
 
 This makefile requires one argument `all` to run the analysis top to bottom.
@@ -52,7 +52,36 @@ When the analysis is complete, you can remove all temporary files (excluding
 `report.Rmd` and `winemag-data-130k-v2.csv.zip`) through the `clean` argument in the makefile in main directory:
 
 ```
-make -f Makefile clean
+make -f Makefile_windows clean
+```
+
+#### Docker
+
+It is possible to run the entire analysis through a Docker container as well. you must clone the repository locally, and then run the below command:
+
+```
+docker pull inikel/mds_proj_522
+```
+When the image is finished downloading, you can run:
+```
+docker run -it --rm -v <ABSOLUTE_PATH_OF_REPOSITORY>:/home/mds_proj_522 inikel/mds_proj_522 /bin/bash
+```
+Once you are inside of the container interactively, you can run the analysis:
+
+```
+make -f Makefile_linux all
+```
+
+```
+make -f Makefile_linux clean
+```
+
+#### Packrat
+
+To run the analysis without needing to download any packages, there is a `packrat/` directory with the packages already initialized. before running the analysis, you must run the below code to use the packrat libraries:
+
+```
+packrat::restore()
 ```
 
 ### File Dependency

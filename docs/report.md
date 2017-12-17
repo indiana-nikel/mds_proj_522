@@ -1,0 +1,70 @@
+---
+title: "Data Science Report"
+author: "Indiana Nikel"
+date: "December 9, 2017"
+output: github_document
+---
+
+
+
+
+## Summary
+
+In the modern day of wine, sommalier's are known as the foremost experts on the drink. The taste, the smell, the winery, all factors in what affects a wine's subjective rating. But how does that rating tranfer over to the overall price of the wine? What makes a bottle of wine cost the price that it does?
+
+The goal of this research project is to discover how these different affect the price of a wine, if at all.
+
+
+## Data
+
+Link: [https://www.kaggle.com/zynicide/wine-reviews](https://www.kaggle.com/zynicide/wine-reviews)
+
+The data consists of approximately 130,000 rows and 13 fields:
+
+| Variable | Description |
+| ------------------ | ------------------------------------ |
+| Country | The country that the wine is from. |
+| Description | A few sentences from a sommelier describing the wine's taste (ie. smell, look, feel, etc.). |
+| Designation | The vineyard within the winery where the grapes that made the wine are from. |
+| Points | The number of points WineEnthusiast rated the wine on a scale of 1-100 (reviews are only for wines that score >=80). |
+| Price | The cost for a bottle of the wine. |
+| Province | The province or state that the wine is from. |
+| Region 1 | The wine growing area in a province or state (ie. Napa). |
+| Region 2 | Sometimes there are more specific regions specified within a wine growing area (ie. Rutherford inside the Napa Valley), but this value can sometimes be blank. |
+| Taster Name | Name of the person who tasted and reviewed the wine. |
+| Taster Twitter Handle | Twitter handle for the person who tasted and reviewed the wine. |
+| Title | The title of the wine review, which often contains the vintage. |
+| Variety | The type of grapes used to make the wine (ie. Pinot Noir). |
+| Winery | The winery where the grapes that made the wine are from. |
+
+When summarizing the data, I filtered out the the Taster N and Taster Twitter Handler columns as well as removed all rows with at least one missing value. 
+
+The final table can be found in the `data/processed/summary.csv` file.
+
+
+## Figures
+
+The first figure from the wine reviews data set depicts the distribution of rankings from the tasters.
+
+![boxplot](../figures/rankings_distribution.png)
+
+An interesting pattern out of this data is that the rankings follow a normal distribution.
+
+
+The second figure Shows how the distribution of prices compares for each level of ranking. The plot on the left contains outliers, while the plot on the right removes these outliers.
+
+![histogram](../figures/boxplots_rankings.png)
+
+An interesting pattern out of this data is that prices rise at an exponential rate as the ranking increases. Additionally, the variance also increases as the ranking increases.
+
+
+The third plot shows the distribution of the ranked wines based on country. As the color moves from red, to orange, to yellow, to green, to blue, to purple, the number of wines ranked increases.
+
+![map](../figures/wine_locations.png)
+
+An interesting pattern out of this data is that Africa and Asia are under-represented in this data set. Additionally, the United States makes up the vast majority of wines ranked, with France and Italy being the next frequent, but having 30,000 wines less each.
+
+
+## Conclusion
+
+The wine dataset provided an interesting insight into how wines form the world are distributed, as well as how rankings and price interact with each other. The data suggests that we might need to perform a transformation onto the price vs. rankings data in order to predict wine prices. Additionally, we must watch for heteroscedasticity in that data subset; the variance does increase as the explanatory variable increases.
