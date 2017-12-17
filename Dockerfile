@@ -1,7 +1,5 @@
 FROM rocker/tidyverse
 
-RUN apt-get unzip
-
 RUN Rscript -e "install.packages('ezknitr', repos='http://cran.us.r-project.org')"
 RUN Rscript -e "install.packages('tidyverse', repos='http://cran.us.r-project.org')"
 RUN Rscript -e "install.packages('cowplot', repos='http://cran.us.r-project.org')"
