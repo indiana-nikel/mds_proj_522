@@ -1,12 +1,12 @@
 # Overview
 
-This is the main directory for the data science project: `mds_proj_522`.
-The data science project `mds_proj_522` is for the purpose of analysis and
+This is the main directory for the data science project: `wine_price_regression`.
+The data science project `wine_price_regression` is for the purpose of analysis and
 is for educational use.
 
 ## Description
 
-`mds_proj_522` is developing a predictive model for the price of wine based on
+`wine_price_regression` is developing a predictive model for the price of wine based on
 up to 10 different explanatory factors. The data set, pulled from
 [https://www.kaggle.com/zynicide/wine-reviews](https://www.kaggle.com/zynicide/wine-reviews)
 contains approximately 130,000 different wine reviews to analyze from.
@@ -60,11 +60,11 @@ make -f Makefile_windows clean
 It is possible to run the entire analysis through a Docker container as well. you must clone the repository locally, and then run the below command:
 
 ```
-docker pull inikel/mds_proj_522
+docker pull inikel/wine_price_regression
 ```
 When the image is finished downloading, you can run:
 ```
-docker run -it --rm -v <ABSOLUTE_PATH_OF_REPOSITORY>:/home/mds_proj_522 inikel/mds_proj_522 /bin/bash
+docker run -it --rm -v <ABSOLUTE_PATH_OF_REPOSITORY>:/home/wine_price_regression inikel/wine_price_regression /bin/bash
 ```
 Once you are inside of the container interactively, you can run the analysis:
 
